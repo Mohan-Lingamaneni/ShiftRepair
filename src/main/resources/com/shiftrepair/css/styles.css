@@ -1,0 +1,29 @@
+.welcome-screen {
+    -fx-background-color: #f4f7f9;
+    -fx-pref-width: 760px;
+    -fx-pref-height: 460px;
+}
+
+.app-title {
+    -fx-text-fill: #17324d;
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+}
+
+.app-subtitle {
+    -fx-text-fill: #526779;
+    -fx-font-size: 18px;
+}
+
+.primary-button {
+    -fx-background-color: #1f6f8b;
+    -fx-background-radius: 5px;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-padding: 11px 20px;
+}
+
+.primary-button:hover {
+    -fx-background-color: #185b73;
+}
