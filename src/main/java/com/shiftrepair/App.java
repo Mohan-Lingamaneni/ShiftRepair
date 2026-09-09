@@ -12,7 +12,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(
-                App.class.getResource("/com/shiftrepair/fxml/welcome-view.fxml"));
+            App.class.getResource("/com/shiftrepair/fxml/app-shell.fxml"));
         Scene scene = new Scene(loader.load());
 
         stage.setTitle("ShiftRepair");
