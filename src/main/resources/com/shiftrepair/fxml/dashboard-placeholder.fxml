@@ -1,7 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<VBox spacing="8.0" styleClass="placeholder-page" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <Label text="Dashboard" styleClass="placeholder-title" />
-    <Label text="Dashboard content will be added later." styleClass="placeholder-label" />
-</VBox>
+
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.shiftrepair.controller.DashboardController"
+            styleClass="dashboard-scroll">
+    <content>
+        <VBox spacing="24.0" styleClass="dashboard-page page-root">
+            <padding>
+                <Insets top="28.0" right="34.0" bottom="34.0" left="34.0" />
+            </padding>
+
+            <HBox alignment="TOP_CENTER" styleClass="dashboard-heading-row">
+                <VBox spacing="5.0" HBox.hgrow="ALWAYS">
+                    <Label text="Manager Dashboard" styleClass="dashboard-title page-title" />
+                    <Label text="A quick view of today's staffing coverage and active recovery work." styleClass="dashboard-subtitle page-subtitle" />
+                </VBox>
+                <HBox alignment="CENTER_RIGHT" spacing="8.0" styleClass="dashboard-date">
+                    <Label text="●" styleClass="date-icon" />
+                    <Label text="Tuesday, Sep 16, 2025" styleClass="date-label" />
+                </HBox>
+            </HBox>
+
+            <GridPane hgap="16.0" styleClass="metric-row">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+                    <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+                    <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+                    <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+                </columnConstraints>
+                <VBox styleClass="metric-card card app-card" maxWidth="Infinity" GridPane.columnIndex="0">
+                    <HBox alignment="CENTER_LEFT" spacing="14.0">
+                        <StackPane styleClass="metric-icon metric-icon-shifts">
+                            <Circle radius="24.0" fill="#E2F3FA" />
+                            <Label text="▦" styleClass="metric-icon-symbol" />
+                        </StackPane>
+                        <VBox spacing="2.0">
+                            <Label text="12" styleClass="metric-value metric-number kpi-number" />
+                            <Label text="TODAY'S SHIFTS" styleClass="metric-label kpi-label" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+                <VBox styleClass="metric-card card app-card" maxWidth="Infinity" GridPane.columnIndex="1">
+                    <HBox alignment="CENTER_LEFT" spacing="14.0">
+                        <StackPane styleClass="metric-icon metric-icon-covered">
+                            <Circle radius="24.0" fill="#E4F5EC" />
+                            <Label text="✓" styleClass="metric-icon-symbol" />
+                        </StackPane>
+                        <VBox spacing="2.0">
+                            <Label text="10" styleClass="metric-value metric-number kpi-number" />
+                            <Label text="FULLY COVERED" styleClass="metric-label kpi-label" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+                <VBox styleClass="metric-card card app-card" maxWidth="Infinity" GridPane.columnIndex="2">
+                    <HBox alignment="CENTER_LEFT" spacing="14.0">
+                        <StackPane styleClass="metric-icon metric-icon-active">
+                            <Circle radius="24.0" fill="#FFF1D5" />
+                            <Label text="●" styleClass="metric-icon-symbol" />
+                        </StackPane>
+                        <VBox spacing="2.0">
+                            <Label text="1" styleClass="metric-value metric-number kpi-number" />
+                            <Label text="ACTIVE RECOVERIES" styleClass="metric-label kpi-label" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+                <VBox styleClass="metric-card card app-card" maxWidth="Infinity" GridPane.columnIndex="3">
+                    <HBox alignment="CENTER_LEFT" spacing="14.0">
+                        <StackPane styleClass="metric-icon metric-icon-alert">
+                            <Circle radius="24.0" fill="#FDE8E6" />
+                            <Label text="!" styleClass="metric-icon-symbol" />
+                        </StackPane>
+                        <VBox spacing="2.0">
+                            <Label text="1" styleClass="metric-value metric-number kpi-number" />
+                            <Label text="UNCOVERED" styleClass="metric-label kpi-label" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+            </GridPane>
+
+            <HBox spacing="20.0" styleClass="dashboard-sections" alignment="TOP_LEFT">
+                <VBox spacing="14.0" styleClass="section-card card app-card schedule-section" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT">
+                        <Label text="Today's Schedule" styleClass="section-title section-header" HBox.hgrow="ALWAYS" />
+                        <Label text="View Full Schedule  →" styleClass="section-link" />
+                    </HBox>
+                    <TableView fx:id="scheduleTable" prefHeight="205.0" fixedCellSize="38.0" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="timeColumn" text="Time" prefWidth="145.0" />
+                            <TableColumn fx:id="employeeColumn" text="Employee" prefWidth="150.0" />
+                            <TableColumn fx:id="roleColumn" text="Role" prefWidth="125.0" />
+                            <TableColumn fx:id="statusColumn" text="Status" prefWidth="130.0" />
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <VBox spacing="16.0" styleClass="section-card card app-card active-recovery-card recovery-section" HBox.hgrow="NEVER">
+                    <HBox alignment="CENTER_LEFT">
+                        <Label text="Active Recovery" styleClass="section-title" HBox.hgrow="ALWAYS" />
+                        <Label text="•••" styleClass="card-menu" />
+                    </HBox>
+                    <VBox spacing="3.0">
+                        <Label text="Sarah Martinez" styleClass="recovery-employee" />
+                        <Label text="Cashier" styleClass="recovery-role" />
+                        <Label text="4:00 PM - 10:00 PM" styleClass="recovery-shift" />
+                    </VBox>
+                    <Label text="SEARCHING FOR COVERAGE" styleClass="recovery-status status-badge status-warning" />
+                    <VBox spacing="10.0" styleClass="recovery-details">
+                        <HBox styleClass="detail-row" spacing="14.0">
+                            <Label text="Eligible candidates" styleClass="detail-label" HBox.hgrow="ALWAYS" />
+                            <Label text="3" styleClass="detail-value" />
+                        </HBox>
+                        <HBox styleClass="detail-row" spacing="14.0">
+                            <Label text="Currently offered to" styleClass="detail-label" HBox.hgrow="ALWAYS" />
+                            <Label text="Jordan Lee" styleClass="detail-value" />
+                        </HBox>
+                        <HBox styleClass="detail-row" spacing="14.0">
+                            <Label text="Score" styleClass="detail-label" HBox.hgrow="ALWAYS" />
+                            <Label text="92" styleClass="detail-value" />
+                        </HBox>
+                        <HBox styleClass="detail-row" spacing="14.0">
+                            <Label text="Time remaining" styleClass="detail-label" HBox.hgrow="ALWAYS" />
+                            <Label text="03:42" styleClass="detail-value recovery-time" />
+                        </HBox>
+                    </VBox>
+                    <Button fx:id="viewRecoveryButton" text="View Recovery" onAction="#showRecoveryDetail" styleClass="secondary-button" maxWidth="Infinity" />
+                </VBox>
+            </HBox>
+        </VBox>
+    </content>
+</ScrollPane>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.shiftrepair.controller.RecoveryDetailController"
+            styleClass="recovery-scroll">
+    <content>
+        <VBox spacing="22.0" styleClass="recovery-page page-root">
+            <padding>
+                <Insets top="26.0" right="34.0" bottom="34.0" left="34.0" />
+            </padding>
+
+            <Button fx:id="backButton" text="Back to Dashboard" onAction="#backToDashboard" styleClass="back-button" />
+
+            <VBox spacing="4.0">
+                <Label text="Active Recovery" styleClass="dashboard-title page-title" />
+                <Label text="Manage coverage for a shift that needs immediate attention." styleClass="dashboard-subtitle page-subtitle" />
+            </VBox>
+
+            <HBox spacing="20.0" styleClass="recovery-summary-row">
+                <VBox spacing="5.0" styleClass="recovery-employee-card recovery-shift-card card" HBox.hgrow="ALWAYS">
+                    <Label text="SHIFT NEEDING COVERAGE" styleClass="summary-label" />
+                    <Label text="Sarah Martinez" styleClass="recovery-employee" />
+                    <Label text="Cashier  |  4:00 PM - 10:00 PM" styleClass="recovery-shift" />
+                    <Label text="CALLED OUT" styleClass="status-called-out status-badge status-danger recovery-summary-status" />
+                </VBox>
+                <VBox spacing="10.0" styleClass="recovery-summary-card card" HBox.hgrow="ALWAYS">
+                    <Label text="RECOVERY SUMMARY" styleClass="summary-label" />
+                    <HBox styleClass="summary-detail-row">
+                        <Label text="Recovery status" styleClass="detail-label" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="recoveryStatus" text="SEARCHING FOR COVERAGE" styleClass="recovery-status status-badge status-warning" />
+                    </HBox>
+                    <HBox styleClass="summary-detail-row">
+                        <Label text="Eligible candidates" styleClass="detail-label" HBox.hgrow="ALWAYS" />
+                        <Label text="3" styleClass="detail-value" />
+                    </HBox>
+                    <HBox styleClass="summary-detail-row">
+                        <Label text="Current offer" styleClass="detail-label" HBox.hgrow="ALWAYS" />
+                        <Label fx:id="currentOffer" text="Jordan Lee" styleClass="detail-value" />
+                    </HBox>
+                    <HBox styleClass="summary-detail-row">
+                        <Label text="Time remaining" styleClass="detail-label" HBox.hgrow="ALWAYS" />
+                        <Label text="03:42" styleClass="detail-value recovery-time" />
+                    </HBox>
+                </VBox>
+            </HBox>
+
+            <VBox spacing="12.0" styleClass="section-card card recovery-table-section">
+                <Label text="Candidate Ranking" styleClass="section-title" />
+                <TableView fx:id="candidateTable" prefHeight="180.0" fixedCellSize="38.0">
+                    <columns>
+                        <TableColumn fx:id="rankColumn" text="#" prefWidth="45.0" />
+                        <TableColumn fx:id="candidateColumn" text="Candidate" prefWidth="170.0" />
+                        <TableColumn fx:id="scoreColumn" text="Score" prefWidth="80.0" />
+                        <TableColumn fx:id="candidateStatusColumn" text="Status" prefWidth="120.0" />
+                        <TableColumn fx:id="availabilityColumn" text="Availability" prefWidth="110.0" />
+                        <TableColumn fx:id="overtimeColumn" text="Overtime Risk" prefWidth="110.0" />
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <HBox spacing="20.0" styleClass="recovery-lower-row">
+                <VBox spacing="12.0" styleClass="section-card card recovery-flow-section" HBox.hgrow="ALWAYS">
+                    <Label text="Recovery Flow" styleClass="section-title" />
+                    <Label text="Call Out Reported" styleClass="flow-step flow-complete" />
+                    <Label text="↓" styleClass="flow-arrow" />
+                    <Label text="Candidates Found" styleClass="flow-step flow-complete" />
+                    <Label text="↓" styleClass="flow-arrow" />
+                    <Label fx:id="flowOffer" text="Jordan Lee - Offer Sent" styleClass="flow-step flow-current" />
+                    <Label text="↓" styleClass="flow-arrow" />
+                    <Label fx:id="flowResult" text="Waiting for Response" styleClass="flow-step flow-next" />
+                </VBox>
+
+                <VBox spacing="12.0" styleClass="section-card card manager-actions-section" HBox.hgrow="ALWAYS">
+                    <Label text="Manager Actions" styleClass="section-title" />
+                    <Label text="Use these controls to test the recovery flow with mock state." styleClass="dashboard-subtitle page-subtitle" wrapText="true" />
+                    <Button fx:id="declineButton" text="Simulate Decline" onAction="#simulateDecline" styleClass="secondary-button" maxWidth="Infinity" />
+                    <Button fx:id="acceptButton" text="Simulate Accept" onAction="#simulateAccept" styleClass="success-button" maxWidth="Infinity" />
+                    <Button fx:id="cancelButton" text="Cancel Recovery" onAction="#cancelRecovery" styleClass="danger-button" maxWidth="Infinity" />
+                </VBox>
+            </HBox>
+        </VBox>
+    </content>
+</ScrollPane>

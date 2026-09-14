@@ -1,0 +1,92 @@
+/* ShiftRepair light theme */
+.app-shell, .dashboard-scroll, .dashboard-scroll > .viewport, .page-root, .dashboard-page {
+    -fx-background-color: #FFF8F0;
+}
+
+.sidebar {
+    -fx-background-color: #3D2B1F;
+}
+
+.sidebar-title, .nav-button.active, .nav-button:hover {
+    -fx-text-fill: #FFFFFF;
+}
+
+.nav-button.active {
+    -fx-background-color: #C9622E;
+    -fx-border-color: #C9622E transparent #C9622E #C9622E;
+}
+
+.nav-button:hover {
+    -fx-background-color: #FBE7D8;
+}
+
+.header, .app-card, .card, .metric-card, .section-card {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #EADFD2;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(61, 43, 31, 0.10), 12, 0.15, 0, 3);
+}
+
+.page-title, .dashboard-title, .header-title, .section-header, .section-title,
+.recovery-employee, .metric-value, .metric-number, .detail-value {
+    -fx-text-fill: #3D2B1F;
+}
+
+.page-subtitle, .dashboard-subtitle, .caption-text, .metric-label, .detail-label,
+.recovery-role, .recovery-shift, .date-label {
+    -fx-text-fill: #8A7660;
+}
+
+.button-primary, .primary-button, .secondary-button {
+    -fx-background-color: #C9622E;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 8px;
+}
+
+.button-primary:hover, .primary-button:hover, .secondary-button:hover {
+    -fx-background-color: #A94F24;
+}
+
+.status-pill, .status-badge, .status-warning, .status-searching, .status-open {
+    -fx-background-color: #FBE7D8;
+    -fx-text-fill: #9A4A1E;
+    -fx-background-radius: 999px;
+}
+
+.status-success, .status-scheduled, .status-covered {
+    -fx-background-color: #E3F0E6;
+    -fx-text-fill: #3F6B4F;
+    -fx-background-radius: 999px;
+}
+
+.status-danger, .status-called-out, .status-cancelled {
+    -fx-background-color: #FBE0DD;
+    -fx-text-fill: #B23A2E;
+    -fx-background-radius: 999px;
+}
+
+.status-neutral, .status-waiting {
+    -fx-background-color: #F1ECE5;
+    -fx-text-fill: #8A7660;
+    -fx-background-radius: 999px;
+}
+
+.active-recovery-card {
+    -fx-border-color: #EADFD2 #EADFD2 #EADFD2 #C9622E;
+    -fx-border-width: 1px 1px 1px 4px;
+}
+
+.table-view, .table-row-cell {
+    -fx-background-color: #FFFFFF;
+}
+
+.table-view .column-header-background, .table-view .column-header, .table-view .filler {
+    -fx-background-color: #FFF8F0;
+}
+
+.table-row-cell:filled:selected, .table-row-cell:filled:selected .table-cell {
+    -fx-background-color: #FBE7D8;
+    -fx-text-fill: #3D2B1F;
+}

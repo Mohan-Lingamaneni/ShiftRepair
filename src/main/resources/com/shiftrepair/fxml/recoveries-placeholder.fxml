@@ -1,7 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<VBox spacing="8.0" styleClass="placeholder-page" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <Label text="Recoveries" styleClass="placeholder-title" />
-    <Label text="Recoveries content will be added later." styleClass="placeholder-label" />
-</VBox>
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.shiftrepair.controller.RecoveriesController"
+            styleClass="dashboard-scroll">
+    <content>
+        <VBox spacing="24.0" styleClass="dashboard-page page-root">
+            <padding>
+                <Insets top="28.0" right="34.0" bottom="34.0" left="34.0" />
+            </padding>
+
+            <VBox spacing="4.0">
+                <Label text="Recoveries" styleClass="dashboard-title page-title" />
+                <Label text="Track shift coverage requests and recovery progress." styleClass="dashboard-subtitle page-subtitle" />
+            </VBox>
+
+            <GridPane hgap="16.0" styleClass="metric-row">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+                    <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+                    <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+                    <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+                </columnConstraints>
+                <VBox styleClass="metric-card card" maxWidth="Infinity" GridPane.columnIndex="0">
+                    <Label text="1" styleClass="metric-value metric-number" />
+                    <Label text="ACTIVE RECOVERIES" styleClass="metric-label" />
+                </VBox>
+                <VBox styleClass="metric-card card" maxWidth="Infinity" GridPane.columnIndex="1">
+                    <Label text="2" styleClass="metric-value metric-number" />
+                    <Label text="COVERED TODAY" styleClass="metric-label" />
+                </VBox>
+                <VBox styleClass="metric-card card" maxWidth="Infinity" GridPane.columnIndex="2">
+                    <Label text="1" styleClass="metric-value metric-number" />
+                    <Label text="CANCELLED" styleClass="metric-label" />
+                </VBox>
+                <VBox styleClass="metric-card card" maxWidth="Infinity" GridPane.columnIndex="3">
+                    <Label text="1" styleClass="metric-value metric-number" />
+                    <Label text="NEEDS ATTENTION" styleClass="metric-label" />
+                </VBox>
+            </GridPane>
+
+            <VBox spacing="14.0" styleClass="section-card card recovery-activity-card">
+                <Label text="Recovery Activity" styleClass="section-title" />
+                <HBox spacing="20.0" styleClass="recovery-content-row">
+                    <VBox spacing="10.0" styleClass="recovery-list-panel" HBox.hgrow="ALWAYS">
+                        <TableView fx:id="recoveryTable" prefHeight="330.0" fixedCellSize="44.0">
+                            <columns>
+                                <TableColumn fx:id="employeeColumn" text="Employee" prefWidth="145.0" />
+                                <TableColumn fx:id="shiftColumn" text="Shift" prefWidth="145.0" />
+                                <TableColumn fx:id="roleColumn" text="Role" prefWidth="125.0" />
+                                <TableColumn fx:id="statusColumn" text="Status" prefWidth="130.0" />
+                                <TableColumn fx:id="candidateColumn" text="Current Candidate" prefWidth="145.0" />
+                                <TableColumn fx:id="scoreColumn" text="Score" prefWidth="65.0" />
+                            </columns>
+                        </TableView>
+                    </VBox>
+
+                    <VBox spacing="14.0" styleClass="recovery-selection-card card" HBox.hgrow="NEVER">
+                        <Label text="Selected Recovery" styleClass="selection-title" />
+                        <VBox spacing="4.0">
+                            <Label fx:id="selectedEmployee" text="Sarah Martinez" styleClass="recovery-employee" />
+                            <Label fx:id="selectedShift" text="Cashier  |  4:00 PM - 10:00 PM" styleClass="recovery-shift" />
+                        </VBox>
+                        <Label fx:id="selectedStatus" text="SEARCHING FOR COVERAGE" styleClass="status-badge status-warning" />
+                        <VBox spacing="9.0" styleClass="recovery-details">
+                            <HBox styleClass="detail-row" spacing="12.0">
+                                <Label text="Current Candidate" styleClass="detail-label" HBox.hgrow="ALWAYS" />
+                                <Label fx:id="selectedCandidate" text="Jordan Lee" styleClass="detail-value" />
+                            </HBox>
+                            <HBox styleClass="detail-row" spacing="12.0">
+                                <Label text="Candidate Score" styleClass="detail-label" HBox.hgrow="ALWAYS" />
+                                <Label fx:id="selectedScore" text="92" styleClass="detail-value" />
+                            </HBox>
+                            <HBox styleClass="detail-row" spacing="12.0">
+                                <Label text="Eligible Candidates" styleClass="detail-label" HBox.hgrow="ALWAYS" />
+                                <Label text="3" styleClass="detail-value" />
+                            </HBox>
+                        </VBox>
+                        <Button fx:id="viewRecoveryButton" text="View Recovery" onAction="#viewRecovery" styleClass="secondary-button" maxWidth="Infinity" />
+                    </VBox>
+                </HBox>
+            </VBox>
+        </VBox>
+    </content>
+</ScrollPane>
