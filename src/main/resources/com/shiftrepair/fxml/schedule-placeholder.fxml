@@ -1,7 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
-<VBox spacing="8.0" styleClass="placeholder-page" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <Label text="Schedule" styleClass="placeholder-title" />
-    <Label text="Schedule content will be added later." styleClass="placeholder-label" />
-</VBox>
+
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.shiftrepair.controller.ScheduleController"
+            styleClass="dashboard-scroll">
+    <content>
+        <VBox spacing="24.0" styleClass="dashboard-page page-root">
+            <padding>
+                <Insets top="28.0" right="34.0" bottom="34.0" left="34.0" />
+            </padding>
+
+            <VBox spacing="4.0">
+                <Label text="Schedule" styleClass="dashboard-title page-title" />
+                <Label text="View today's scheduled shifts and coverage status." styleClass="dashboard-subtitle page-subtitle" />
+            </VBox>
+
+            <GridPane hgap="16.0" styleClass="metric-row">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+                    <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+                    <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+                    <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
+                </columnConstraints>
+                <VBox styleClass="metric-card card" maxWidth="Infinity" GridPane.columnIndex="0">
+                    <Label text="12" styleClass="metric-value metric-number" />
+                    <Label text="TOTAL SHIFTS" styleClass="metric-label" />
+                </VBox>
+                <VBox styleClass="metric-card card" maxWidth="Infinity" GridPane.columnIndex="1">
+                    <Label text="10" styleClass="metric-value metric-number" />
+                    <Label text="FULLY COVERED" styleClass="metric-label" />
+                </VBox>
+                <VBox styleClass="metric-card card" maxWidth="Infinity" GridPane.columnIndex="2">
+                    <Label text="1" styleClass="metric-value metric-number" />
+                    <Label text="NEEDS COVERAGE" styleClass="metric-label" />
+                </VBox>
+                <VBox styleClass="metric-card card" maxWidth="Infinity" GridPane.columnIndex="3">
+                    <Label text="1" styleClass="metric-value metric-number" />
+                    <Label text="OPEN SHIFTS" styleClass="metric-label" />
+                </VBox>
+            </GridPane>
+
+            <VBox spacing="14.0" styleClass="section-card card schedule-section schedule-page-section">
+                <Label text="Today's Schedule" styleClass="section-title" />
+                <TableView fx:id="scheduleTable" prefHeight="360.0" fixedCellSize="38.0" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="timeColumn" text="Time" prefWidth="185.0" />
+                        <TableColumn fx:id="employeeColumn" text="Employee" prefWidth="190.0" />
+                        <TableColumn fx:id="roleColumn" text="Role" prefWidth="170.0" />
+                        <TableColumn fx:id="statusColumn" text="Status" prefWidth="170.0" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </VBox>
+    </content>
+</ScrollPane>

@@ -1,0 +1,96 @@
+/* ShiftRepair dark theme */
+.app-shell, .dashboard-scroll, .dashboard-scroll > .viewport, .page-root, .dashboard-page {
+    -fx-background-color: #1A140F;
+}
+
+.sidebar {
+    -fx-background-color: #120D09;
+}
+
+.sidebar-title, .nav-button.active, .nav-button:hover {
+    -fx-text-fill: #F5EDE3;
+}
+
+.nav-button.active {
+    -fx-background-color: #E07A45;
+    -fx-border-color: #E07A45 transparent #E07A45 #E07A45;
+}
+
+.nav-button:hover {
+    -fx-background-color: #3A2418;
+}
+
+.header, .app-card, .card, .metric-card, .section-card {
+    -fx-background-color: #241D16;
+    -fx-border-color: #49372A;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.30), 12, 0.15, 0, 3);
+}
+
+.page-title, .dashboard-title, .header-title, .section-header, .section-title,
+.recovery-employee, .metric-value, .metric-number, .detail-value {
+    -fx-text-fill: #F5EDE3;
+}
+
+.page-subtitle, .dashboard-subtitle, .caption-text, .metric-label, .detail-label,
+.recovery-role, .recovery-shift, .date-label {
+    -fx-text-fill: #A6947F;
+}
+
+.button-primary, .primary-button, .secondary-button {
+    -fx-background-color: #E07A45;
+    -fx-text-fill: #1A140F;
+    -fx-background-radius: 8px;
+}
+
+.button-primary:hover, .primary-button:hover, .secondary-button:hover {
+    -fx-background-color: #F08D57;
+}
+
+.status-pill, .status-badge, .status-warning, .status-searching, .status-open {
+    -fx-background-color: #3A2418;
+    -fx-text-fill: #F2A876;
+    -fx-background-radius: 999px;
+}
+
+.status-success, .status-scheduled, .status-covered {
+    -fx-background-color: #1E3324;
+    -fx-text-fill: #7FC79A;
+    -fx-background-radius: 999px;
+}
+
+.status-danger, .status-called-out, .status-cancelled {
+    -fx-background-color: #3A1E1B;
+    -fx-text-fill: #F2897A;
+    -fx-background-radius: 999px;
+}
+
+.status-neutral, .status-waiting {
+    -fx-background-color: #2A2419;
+    -fx-text-fill: #A6947F;
+    -fx-background-radius: 999px;
+}
+
+.active-recovery-card {
+    -fx-border-color: #49372A #49372A #49372A #E07A45;
+    -fx-border-width: 1px 1px 1px 4px;
+}
+
+.table-view, .table-row-cell {
+    -fx-background-color: #241D16;
+}
+
+.table-view .column-header-background, .table-view .column-header, .table-view .filler {
+    -fx-background-color: #1A140F;
+}
+
+.table-cell {
+    -fx-text-fill: #F5EDE3;
+}
+
+.table-row-cell:filled:selected, .table-row-cell:filled:selected .table-cell {
+    -fx-background-color: #3A2418;
+    -fx-text-fill: #F5EDE3;
+}

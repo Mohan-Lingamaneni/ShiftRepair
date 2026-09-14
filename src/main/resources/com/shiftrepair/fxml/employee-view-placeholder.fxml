@@ -1,7 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<VBox spacing="8.0" styleClass="placeholder-page" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <Label text="Employee View" styleClass="placeholder-title" />
-    <Label text="Employee View content will be added later." styleClass="placeholder-label" />
-</VBox>
+
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.shiftrepair.controller.EmployeeViewController"
+            styleClass="dashboard-scroll">
+    <content>
+        <VBox spacing="24.0" styleClass="dashboard-page page-root">
+            <padding>
+                <Insets top="28.0" right="34.0" bottom="34.0" left="34.0" />
+            </padding>
+
+            <VBox spacing="4.0">
+                <Label text="Employee View" styleClass="dashboard-title page-title" />
+                <Label text="View your schedule and respond to available shift coverage offers." styleClass="dashboard-subtitle page-subtitle" />
+            </VBox>
+
+            <HBox spacing="20.0" styleClass="employee-view-summary-row">
+                <VBox spacing="4.0" styleClass="section-card card employee-profile-card">
+                    <Label text="Jordan Lee" styleClass="recovery-employee" />
+                    <Label text="Cashier" styleClass="recovery-role" />
+                    <Label fx:id="availabilityValue" text="Available" styleClass="status-badge status-success" />
+                </VBox>
+                <VBox spacing="8.0" styleClass="section-card card availability-card">
+                    <Label text="Availability" styleClass="section-title" />
+                    <ComboBox fx:id="availabilitySelector" prefWidth="180.0" />
+                </VBox>
+            </HBox>
+
+            <VBox spacing="14.0" styleClass="section-card card employee-shifts-card">
+                <Label text="My Upcoming Shifts" styleClass="section-title" />
+                <TableView fx:id="upcomingShiftsTable" prefHeight="180.0" fixedCellSize="40.0">
+                    <columns>
+                        <TableColumn fx:id="dayColumn" text="Day" prefWidth="120.0" />
+                        <TableColumn fx:id="shiftColumn" text="Shift" prefWidth="190.0" />
+                        <TableColumn fx:id="roleColumn" text="Role" prefWidth="150.0" />
+                        <TableColumn fx:id="statusColumn" text="Status" prefWidth="140.0" />
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <VBox spacing="16.0" styleClass="section-card card coverage-offer-card">
+                <HBox alignment="CENTER_LEFT">
+                    <Label text="Coverage Request" styleClass="section-title" HBox.hgrow="ALWAYS" />
+                    <Label fx:id="offerStatus" text="Pending Response" styleClass="status-badge status-warning" />
+                </HBox>
+                <HBox spacing="24.0" styleClass="offer-content-row">
+                    <VBox spacing="9.0" styleClass="offer-details" HBox.hgrow="ALWAYS">
+                        <Label text="Original employee: Sarah Martinez" styleClass="detail-value" />
+                        <Label text="Role: Cashier" styleClass="detail-value" />
+                        <Label text="Shift: 4:00 PM - 10:00 PM" styleClass="detail-value" />
+                        <Label text="Reason: Callout" styleClass="detail-label" />
+                        <Label text="Time remaining: 03:42" styleClass="detail-value" />
+                        <Label text="Coverage score: 92" styleClass="detail-value" />
+                    </VBox>
+                    <VBox spacing="8.0" styleClass="selection-card offer-reasons" HBox.hgrow="ALWAYS">
+                        <Label text="Why you were selected" styleClass="selection-title" />
+                        <Label text="• Required skill matched" styleClass="detail-label" />
+                        <Label text="• You are available" styleClass="detail-label" />
+                        <Label text="• No overtime risk" styleClass="detail-label" />
+                    </VBox>
+                </HBox>
+                <Label fx:id="responseMessage" styleClass="response-message" />
+                <HBox spacing="12.0">
+                    <Button fx:id="acceptButton" text="Accept Shift" onAction="#acceptShift" styleClass="success-button" />
+                    <Button fx:id="declineButton" text="Decline Shift" onAction="#declineShift" styleClass="danger-button" />
+                    <Button text="Reset Demo" onAction="#resetDemo" styleClass="secondary-button" />
+                </HBox>
+            </VBox>
+        </VBox>
+    </content>
+</ScrollPane>

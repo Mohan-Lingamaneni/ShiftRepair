@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import com.shiftrepair.theme.ThemeManager;
 
 import java.io.IOException;
 
@@ -14,6 +15,7 @@ public class App extends Application {
         FXMLLoader loader = new FXMLLoader(
             App.class.getResource("/com/shiftrepair/fxml/app-shell.fxml"));
         Scene scene = new Scene(loader.load());
+        ThemeManager.apply(scene);
 
         stage.setTitle("ShiftRepair");
         stage.setScene(scene);

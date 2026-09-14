@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import com.shiftrepair.theme.ThemeManager;
 
 import java.io.IOException;
 
@@ -33,13 +34,27 @@ public class AppShellController {
     private Button employeeViewButton;
 
     @FXML
+    private Button themeToggleButton;
+
+    @FXML
     private void initialize() {
+        shell.setUserData(this);
         showPage("Dashboard", "/com/shiftrepair/fxml/dashboard-placeholder.fxml", dashboardButton);
     }
 
     @FXML
-    private void showDashboard() {
+    public void showDashboard() {
         showPage("Dashboard", "/com/shiftrepair/fxml/dashboard-placeholder.fxml", dashboardButton);
+    }
+
+    @FXML
+    private void toggleTheme() {
+        ThemeManager.toggle(themeToggleButton.getScene());
+        themeToggleButton.setText(ThemeManager.getCurrentMode() == ThemeManager.Mode.LIGHT ? "☾" : "☀");
+    }
+
+    public void showRecoveryDetail() {
+        showPage("Recovery Detail", "/com/shiftrepair/fxml/recovery-detail.fxml", recoveriesButton);
     }
 
     @FXML
