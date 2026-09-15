@@ -15,29 +15,29 @@
             fx:controller="com.shiftrepair.controller.EmployeeViewController"
             styleClass="dashboard-scroll">
     <content>
-        <VBox spacing="24.0" styleClass="dashboard-page page-root">
+        <VBox spacing="24.0" styleClass="dashboard-page, page-root">
             <padding>
                 <Insets top="28.0" right="34.0" bottom="34.0" left="34.0" />
             </padding>
 
             <VBox spacing="4.0">
-                <Label text="Employee View" styleClass="dashboard-title page-title" />
-                <Label text="View your schedule and respond to available shift coverage offers." styleClass="dashboard-subtitle page-subtitle" />
+                <Label text="Employee View" styleClass="dashboard-title, page-title" />
+                <Label text="View your schedule and respond to available shift coverage offers." styleClass="dashboard-subtitle, page-subtitle" />
             </VBox>
 
             <HBox spacing="20.0" styleClass="employee-view-summary-row">
-                <VBox spacing="4.0" styleClass="section-card card employee-profile-card">
+                <VBox spacing="4.0" styleClass="section-card, card, employee-profile-card">
                     <Label text="Jordan Lee" styleClass="recovery-employee" />
                     <Label text="Cashier" styleClass="recovery-role" />
-                    <Label fx:id="availabilityValue" text="Available" styleClass="status-badge status-success" />
+                    <Label fx:id="availabilityValue" text="Available" styleClass="status-badge, status-success" />
                 </VBox>
-                <VBox spacing="8.0" styleClass="section-card card availability-card">
+                <VBox spacing="8.0" styleClass="section-card, card, availability-card">
                     <Label text="Availability" styleClass="section-title" />
                     <ComboBox fx:id="availabilitySelector" prefWidth="180.0" />
                 </VBox>
             </HBox>
 
-            <VBox spacing="14.0" styleClass="section-card card employee-shifts-card">
+            <VBox spacing="14.0" styleClass="section-card, card, employee-shifts-card">
                 <Label text="My Upcoming Shifts" styleClass="section-title" />
                 <TableView fx:id="upcomingShiftsTable" prefHeight="180.0" fixedCellSize="40.0">
                     <columns>
@@ -49,10 +49,10 @@
                 </TableView>
             </VBox>
 
-            <VBox spacing="16.0" styleClass="section-card card coverage-offer-card">
+            <VBox spacing="16.0" styleClass="section-card, card, coverage-offer-card">
                 <HBox alignment="CENTER_LEFT">
                     <Label text="Coverage Request" styleClass="section-title" HBox.hgrow="ALWAYS" />
-                    <Label fx:id="offerStatus" text="Pending Response" styleClass="status-badge status-warning" />
+                    <Label fx:id="offerStatus" text="Pending Response" styleClass="status-badge, status-warning" />
                 </HBox>
                 <HBox spacing="24.0" styleClass="offer-content-row">
                     <VBox spacing="9.0" styleClass="offer-details" HBox.hgrow="ALWAYS">
@@ -63,7 +63,7 @@
                         <Label text="Time remaining: 03:42" styleClass="detail-value" />
                         <Label text="Coverage score: 92" styleClass="detail-value" />
                     </VBox>
-                    <VBox spacing="8.0" styleClass="selection-card offer-reasons" HBox.hgrow="ALWAYS">
+                    <VBox spacing="8.0" styleClass="selection-card, offer-reasons" HBox.hgrow="ALWAYS">
                         <Label text="Why you were selected" styleClass="selection-title" />
                         <Label text="• Required skill matched" styleClass="detail-label" />
                         <Label text="• You are available" styleClass="detail-label" />

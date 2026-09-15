@@ -14,14 +14,14 @@
             fx:controller="com.shiftrepair.controller.ScheduleController"
             styleClass="dashboard-scroll">
     <content>
-        <VBox spacing="24.0" styleClass="dashboard-page page-root">
+        <VBox spacing="24.0" styleClass="dashboard-page, page-root">
             <padding>
                 <Insets top="28.0" right="34.0" bottom="34.0" left="34.0" />
             </padding>
 
             <VBox spacing="4.0">
-                <Label text="Schedule" styleClass="dashboard-title page-title" />
-                <Label text="View today's scheduled shifts and coverage status." styleClass="dashboard-subtitle page-subtitle" />
+                <Label text="Schedule" styleClass="dashboard-title, page-title" />
+                <Label text="View today's scheduled shifts and coverage status." styleClass="dashboard-subtitle, page-subtitle" />
             </VBox>
 
             <GridPane hgap="16.0" styleClass="metric-row">
@@ -31,25 +31,25 @@
                     <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
                     <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
                 </columnConstraints>
-                <VBox styleClass="metric-card card" maxWidth="Infinity" GridPane.columnIndex="0">
-                    <Label text="12" styleClass="metric-value metric-number" />
+                <VBox styleClass="metric-card, card" maxWidth="Infinity" GridPane.columnIndex="0">
+                    <Label text="12" styleClass="metric-value, metric-number" />
                     <Label text="TOTAL SHIFTS" styleClass="metric-label" />
                 </VBox>
-                <VBox styleClass="metric-card card" maxWidth="Infinity" GridPane.columnIndex="1">
-                    <Label text="10" styleClass="metric-value metric-number" />
+                <VBox styleClass="metric-card, card" maxWidth="Infinity" GridPane.columnIndex="1">
+                    <Label text="10" styleClass="metric-value, metric-number" />
                     <Label text="FULLY COVERED" styleClass="metric-label" />
                 </VBox>
-                <VBox styleClass="metric-card card" maxWidth="Infinity" GridPane.columnIndex="2">
-                    <Label text="1" styleClass="metric-value metric-number" />
+                <VBox styleClass="metric-card, card" maxWidth="Infinity" GridPane.columnIndex="2">
+                    <Label text="1" styleClass="metric-value, metric-number" />
                     <Label text="NEEDS COVERAGE" styleClass="metric-label" />
                 </VBox>
-                <VBox styleClass="metric-card card" maxWidth="Infinity" GridPane.columnIndex="3">
-                    <Label text="1" styleClass="metric-value metric-number" />
+                <VBox styleClass="metric-card, card" maxWidth="Infinity" GridPane.columnIndex="3">
+                    <Label text="1" styleClass="metric-value, metric-number" />
                     <Label text="OPEN SHIFTS" styleClass="metric-label" />
                 </VBox>
             </GridPane>
 
-            <VBox spacing="14.0" styleClass="section-card card schedule-section schedule-page-section">
+            <VBox spacing="14.0" styleClass="section-card, card, schedule-section, schedule-page-section">
                 <Label text="Today's Schedule" styleClass="section-title" />
                 <TableView fx:id="scheduleTable" prefHeight="360.0" fixedCellSize="38.0" VBox.vgrow="ALWAYS">
                     <columns>

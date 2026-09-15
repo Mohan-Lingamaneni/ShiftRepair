@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="shell" stylesheets="@../css/styles.css"
+<BorderPane fx:id="shell"
             xmlns="http://javafx.com/javafx/23.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.shiftrepair.controller.AppShellController"
@@ -28,7 +28,7 @@
                 <Insets top="20.0" right="28.0" bottom="20.0" left="28.0" />
             </padding>
             <Label fx:id="pageTitle" text="Dashboard" styleClass="header-title" HBox.hgrow="ALWAYS" />
-            <Button fx:id="themeToggleButton" text="☾" onAction="#toggleTheme" styleClass="theme-toggle-button" />
+            <Button fx:id="themeToggleButton" text="☀" onAction="#toggleTheme" styleClass="theme-toggle-button" />
         </HBox>
     </top>
     <center>

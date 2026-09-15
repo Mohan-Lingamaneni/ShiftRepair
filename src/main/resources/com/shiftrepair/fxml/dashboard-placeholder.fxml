@@ -18,15 +18,15 @@
             fx:controller="com.shiftrepair.controller.DashboardController"
             styleClass="dashboard-scroll">
     <content>
-        <VBox spacing="24.0" styleClass="dashboard-page page-root">
+        <VBox spacing="24.0" styleClass="dashboard-page, page-root">
             <padding>
                 <Insets top="28.0" right="34.0" bottom="34.0" left="34.0" />
             </padding>
 
             <HBox alignment="TOP_CENTER" styleClass="dashboard-heading-row">
                 <VBox spacing="5.0" HBox.hgrow="ALWAYS">
-                    <Label text="Manager Dashboard" styleClass="dashboard-title page-title" />
-                    <Label text="A quick view of today's staffing coverage and active recovery work." styleClass="dashboard-subtitle page-subtitle" />
+                    <Label text="Manager Dashboard" styleClass="dashboard-title, page-title" />
+                    <Label text="A quick view of today's staffing coverage and active recovery work." styleClass="dashboard-subtitle, page-subtitle" />
                 </VBox>
                 <HBox alignment="CENTER_RIGHT" spacing="8.0" styleClass="dashboard-date">
                     <Label text="●" styleClass="date-icon" />
@@ -41,60 +41,60 @@
                     <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
                     <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
                 </columnConstraints>
-                <VBox styleClass="metric-card card app-card" maxWidth="Infinity" GridPane.columnIndex="0">
+                <VBox styleClass="metric-card, card, app-card" maxWidth="Infinity" GridPane.columnIndex="0">
                     <HBox alignment="CENTER_LEFT" spacing="14.0">
-                        <StackPane styleClass="metric-icon metric-icon-shifts">
-                            <Circle radius="24.0" fill="#E2F3FA" />
+                        <StackPane styleClass="metric-icon, metric-icon-shifts">
+                            <Circle radius="24.0" fill="#DCEAE6" />
                             <Label text="▦" styleClass="metric-icon-symbol" />
                         </StackPane>
                         <VBox spacing="2.0">
-                            <Label text="12" styleClass="metric-value metric-number kpi-number" />
-                            <Label text="TODAY'S SHIFTS" styleClass="metric-label kpi-label" />
+                            <Label text="12" styleClass="metric-value, metric-number, kpi-number" />
+                            <Label text="TODAY'S SHIFTS" styleClass="metric-label, kpi-label" />
                         </VBox>
                     </HBox>
                 </VBox>
-                <VBox styleClass="metric-card card app-card" maxWidth="Infinity" GridPane.columnIndex="1">
+                <VBox styleClass="metric-card, card, app-card" maxWidth="Infinity" GridPane.columnIndex="1">
                     <HBox alignment="CENTER_LEFT" spacing="14.0">
-                        <StackPane styleClass="metric-icon metric-icon-covered">
-                            <Circle radius="24.0" fill="#E4F5EC" />
+                        <StackPane styleClass="metric-icon, metric-icon-covered">
+                            <Circle radius="24.0" fill="#DDEBDD" />
                             <Label text="✓" styleClass="metric-icon-symbol" />
                         </StackPane>
                         <VBox spacing="2.0">
-                            <Label text="10" styleClass="metric-value metric-number kpi-number" />
-                            <Label text="FULLY COVERED" styleClass="metric-label kpi-label" />
+                            <Label text="10" styleClass="metric-value, metric-number, kpi-number" />
+                            <Label text="FULLY COVERED" styleClass="metric-label, kpi-label" />
                         </VBox>
                     </HBox>
                 </VBox>
-                <VBox styleClass="metric-card card app-card" maxWidth="Infinity" GridPane.columnIndex="2">
+                <VBox styleClass="metric-card, card, app-card" maxWidth="Infinity" GridPane.columnIndex="2">
                     <HBox alignment="CENTER_LEFT" spacing="14.0">
-                        <StackPane styleClass="metric-icon metric-icon-active">
-                            <Circle radius="24.0" fill="#FFF1D5" />
+                        <StackPane styleClass="metric-icon, metric-icon-active">
+                            <Circle radius="24.0" fill="#F5E4C4" />
                             <Label text="●" styleClass="metric-icon-symbol" />
                         </StackPane>
                         <VBox spacing="2.0">
-                            <Label text="1" styleClass="metric-value metric-number kpi-number" />
-                            <Label text="ACTIVE RECOVERIES" styleClass="metric-label kpi-label" />
+                            <Label text="1" styleClass="metric-value, metric-number, kpi-number" />
+                            <Label text="ACTIVE RECOVERIES" styleClass="metric-label, kpi-label" />
                         </VBox>
                     </HBox>
                 </VBox>
-                <VBox styleClass="metric-card card app-card" maxWidth="Infinity" GridPane.columnIndex="3">
+                <VBox styleClass="metric-card, card, app-card" maxWidth="Infinity" GridPane.columnIndex="3">
                     <HBox alignment="CENTER_LEFT" spacing="14.0">
-                        <StackPane styleClass="metric-icon metric-icon-alert">
-                            <Circle radius="24.0" fill="#FDE8E6" />
+                        <StackPane styleClass="metric-icon, metric-icon-alert">
+                            <Circle radius="24.0" fill="#F4DADA" />
                             <Label text="!" styleClass="metric-icon-symbol" />
                         </StackPane>
                         <VBox spacing="2.0">
-                            <Label text="1" styleClass="metric-value metric-number kpi-number" />
-                            <Label text="UNCOVERED" styleClass="metric-label kpi-label" />
+                            <Label text="1" styleClass="metric-value, metric-number, kpi-number" />
+                            <Label text="UNCOVERED" styleClass="metric-label, kpi-label" />
                         </VBox>
                     </HBox>
                 </VBox>
             </GridPane>
 
             <HBox spacing="20.0" styleClass="dashboard-sections" alignment="TOP_LEFT">
-                <VBox spacing="14.0" styleClass="section-card card app-card schedule-section" HBox.hgrow="ALWAYS">
+                <VBox spacing="14.0" styleClass="section-card, card, app-card, schedule-section" HBox.hgrow="ALWAYS">
                     <HBox alignment="CENTER_LEFT">
-                        <Label text="Today's Schedule" styleClass="section-title section-header" HBox.hgrow="ALWAYS" />
+                        <Label text="Today's Schedule" styleClass="section-title, section-header" HBox.hgrow="ALWAYS" />
                         <Label text="View Full Schedule  →" styleClass="section-link" />
                     </HBox>
                     <TableView fx:id="scheduleTable" prefHeight="205.0" fixedCellSize="38.0" VBox.vgrow="ALWAYS">
@@ -107,7 +107,7 @@
                     </TableView>
                 </VBox>
 
-                <VBox spacing="16.0" styleClass="section-card card app-card active-recovery-card recovery-section" HBox.hgrow="NEVER">
+                <VBox spacing="16.0" styleClass="section-card, card, app-card, active-recovery-card, recovery-section" HBox.hgrow="NEVER">
                     <HBox alignment="CENTER_LEFT">
                         <Label text="Active Recovery" styleClass="section-title" HBox.hgrow="ALWAYS" />
                         <Label text="•••" styleClass="card-menu" />
@@ -117,7 +117,7 @@
                         <Label text="Cashier" styleClass="recovery-role" />
                         <Label text="4:00 PM - 10:00 PM" styleClass="recovery-shift" />
                     </VBox>
-                    <Label text="SEARCHING FOR COVERAGE" styleClass="recovery-status status-badge status-warning" />
+                    <Label text="SEARCHING FOR COVERAGE" styleClass="recovery-status, status-badge, status-warning" />
                     <VBox spacing="10.0" styleClass="recovery-details">
                         <HBox styleClass="detail-row" spacing="14.0">
                             <Label text="Eligible candidates" styleClass="detail-label" HBox.hgrow="ALWAYS" />
@@ -133,10 +133,10 @@
                         </HBox>
                         <HBox styleClass="detail-row" spacing="14.0">
                             <Label text="Time remaining" styleClass="detail-label" HBox.hgrow="ALWAYS" />
-                            <Label text="03:42" styleClass="detail-value recovery-time" />
+                            <Label text="03:42" styleClass="detail-value, recovery-time" />
                         </HBox>
                     </VBox>
-                    <Button fx:id="viewRecoveryButton" text="View Recovery" onAction="#showRecoveryDetail" styleClass="secondary-button" maxWidth="Infinity" />
+                    <Button fx:id="viewRecoveryButton" text="View Recovery" onAction="#showRecoveryDetail" styleClass="primary-button" maxWidth="Infinity" />
                 </VBox>
             </HBox>
         </VBox>

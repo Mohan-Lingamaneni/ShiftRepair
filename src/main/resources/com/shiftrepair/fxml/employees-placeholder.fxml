@@ -17,14 +17,14 @@
             fx:controller="com.shiftrepair.controller.EmployeesController"
             styleClass="dashboard-scroll">
     <content>
-        <VBox spacing="24.0" styleClass="dashboard-page page-root">
+        <VBox spacing="24.0" styleClass="dashboard-page, page-root">
             <padding>
                 <Insets top="28.0" right="34.0" bottom="34.0" left="34.0" />
             </padding>
 
             <VBox spacing="4.0">
-                <Label text="Employees" styleClass="dashboard-title page-title" />
-                <Label text="View employee availability, roles, skills, and coverage eligibility." styleClass="dashboard-subtitle page-subtitle" />
+                <Label text="Employees" styleClass="dashboard-title, page-title" />
+                <Label text="View employee availability, roles, skills, and coverage eligibility." styleClass="dashboard-subtitle, page-subtitle" />
             </VBox>
 
             <HBox spacing="12.0" alignment="CENTER_LEFT">
@@ -32,7 +32,7 @@
                 <ComboBox fx:id="roleFilter" promptText="All Roles" prefWidth="180.0" />
             </HBox>
 
-            <VBox spacing="14.0" styleClass="section-card card employee-directory-card">
+            <VBox spacing="14.0" styleClass="section-card, card, employee-directory-card">
                 <Label text="Employee Directory" styleClass="section-title" />
                 <HBox spacing="20.0" styleClass="employee-content-row">
                     <TableView fx:id="employeeTable" prefHeight="390.0" fixedCellSize="44.0" HBox.hgrow="ALWAYS">
@@ -46,7 +46,7 @@
                         </columns>
                     </TableView>
 
-                    <VBox spacing="14.0" styleClass="employee-selection-card card">
+                    <VBox spacing="14.0" styleClass="employee-selection-card, card">
                         <Label text="Employee Details" styleClass="selection-title" />
                         <VBox spacing="4.0">
                             <Label fx:id="selectedEmployee" text="Jordan Lee" styleClass="recovery-employee" />

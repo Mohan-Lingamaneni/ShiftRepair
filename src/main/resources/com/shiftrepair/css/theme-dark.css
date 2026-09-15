@@ -1,96 +1,401 @@
-/* ShiftRepair dark theme */
-.app-shell, .dashboard-scroll, .dashboard-scroll > .viewport, .page-root, .dashboard-page {
-    -fx-background-color: #1A140F;
+/* Midnight Operations dark theme: colors only. */
+.app-shell,
+.dashboard-scroll,
+.dashboard-scroll > .viewport,
+.recovery-scroll,
+.recovery-scroll > .viewport,
+.page-root,
+.dashboard-page,
+.recovery-page,
+.content-area {
+    -fx-background-color: #111418;
 }
 
-.sidebar {
-    -fx-background-color: #120D09;
+/* Shell and navigation */
+.sidebar,
+.header {
+    -fx-background-color: #1B2026;
 }
 
-.sidebar-title, .nav-button.active, .nav-button:hover {
-    -fx-text-fill: #F5EDE3;
+.header {
+    -fx-border-color: transparent transparent #3A424C transparent;
 }
 
-.nav-button.active {
-    -fx-background-color: #E07A45;
-    -fx-border-color: #E07A45 transparent #E07A45 #E07A45;
+.app-shell .sidebar-title,
+.app-shell .header-title {
+    -fx-text-fill: #F5F1E8;
 }
 
-.nav-button:hover {
-    -fx-background-color: #3A2418;
+.app-shell .nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #C9C2B5;
 }
 
-.header, .app-card, .card, .metric-card, .section-card {
-    -fx-background-color: #241D16;
-    -fx-border-color: #49372A;
-    -fx-border-width: 1px;
-    -fx-border-radius: 12px;
-    -fx-background-radius: 12px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.30), 12, 0.15, 0, 3);
+.app-shell .nav-button:hover {
+    -fx-background-color: #252B32;
+    -fx-text-fill: #F5F1E8;
 }
 
-.page-title, .dashboard-title, .header-title, .section-header, .section-title,
-.recovery-employee, .metric-value, .metric-number, .detail-value {
-    -fx-text-fill: #F5EDE3;
+.app-shell .nav-button.active {
+    -fx-background-color: #294E4B;
+    -fx-border-color: transparent transparent transparent #45C2B5;
+    -fx-text-fill: #FFFFFF;
 }
 
-.page-subtitle, .dashboard-subtitle, .caption-text, .metric-label, .detail-label,
-.recovery-role, .recovery-shift, .date-label {
-    -fx-text-fill: #A6947F;
+.app-shell .theme-toggle-button {
+    -fx-background-color: #20262D;
+    -fx-border-color: #3A424C;
+    -fx-text-fill: #F5F1E8;
 }
 
-.button-primary, .primary-button, .secondary-button {
-    -fx-background-color: #E07A45;
-    -fx-text-fill: #1A140F;
-    -fx-background-radius: 8px;
+.app-shell .theme-toggle-button:hover {
+    -fx-background-color: #29313A;
+    -fx-border-color: #45C2B5;
+    -fx-text-fill: #FFFFFF;
 }
 
-.button-primary:hover, .primary-button:hover, .secondary-button:hover {
-    -fx-background-color: #F08D57;
+.app-shell .theme-toggle-button:pressed {
+    -fx-background-color: #294E4B;
+    -fx-border-color: #45C2B5;
 }
 
-.status-pill, .status-badge, .status-warning, .status-searching, .status-open {
-    -fx-background-color: #3A2418;
-    -fx-text-fill: #F2A876;
-    -fx-background-radius: 999px;
+/* Page and card typography */
+.app-shell .page-title,
+.app-shell .dashboard-title,
+.app-shell .dashboard-title.page-title {
+    -fx-text-fill: #F5F1E8;
 }
 
-.status-success, .status-scheduled, .status-covered {
-    -fx-background-color: #1E3324;
-    -fx-text-fill: #7FC79A;
-    -fx-background-radius: 999px;
+.app-shell .page-subtitle,
+.app-shell .dashboard-subtitle,
+.app-shell .dashboard-subtitle.page-subtitle {
+    -fx-text-fill: #C9C2B5;
 }
 
-.status-danger, .status-called-out, .status-cancelled {
-    -fx-background-color: #3A1E1B;
-    -fx-text-fill: #F2897A;
-    -fx-background-radius: 999px;
+.app-shell .date-icon,
+.app-shell .section-link {
+    -fx-text-fill: #45C2B5;
 }
 
-.status-neutral, .status-waiting {
-    -fx-background-color: #2A2419;
-    -fx-text-fill: #A6947F;
-    -fx-background-radius: 999px;
+.app-shell .date-label,
+.app-shell .card-menu {
+    -fx-text-fill: #9FA8B2;
+}
+
+.card,
+.app-card,
+.metric-card,
+.section-card,
+.recovery-selection-card,
+.recovery-employee-card,
+.recovery-summary-card {
+    -fx-background-color: #20262D;
+    -fx-border-color: #3A424C;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.34), 15, 0.14, 0, 4);
 }
 
 .active-recovery-card {
-    -fx-border-color: #49372A #49372A #49372A #E07A45;
-    -fx-border-width: 1px 1px 1px 4px;
+    -fx-background-color: #242A30;
+    -fx-border-color: #3A424C #3A424C #3A424C #E7B45F;
+    -fx-effect: dropshadow(gaussian, rgba(231, 180, 95, 0.20), 18, 0.14, 0, 4);
 }
 
-.table-view, .table-row-cell {
-    -fx-background-color: #241D16;
+.recovery-selection-card,
+.recovery-summary-card {
+    -fx-border-color: #3A424C #3A424C #3A424C #45C2B5;
 }
 
-.table-view .column-header-background, .table-view .column-header, .table-view .filler {
-    -fx-background-color: #1A140F;
+.recovery-employee-card {
+    -fx-border-color: #3A424C #3A424C #3A424C #E17A7A;
 }
 
-.table-cell {
-    -fx-text-fill: #F5EDE3;
+.app-shell .section-title,
+.app-shell .selection-title,
+.app-shell .recovery-employee,
+.app-shell .metric-value,
+.app-shell .metric-number,
+.app-shell .detail-value {
+    -fx-text-fill: #F5F1E8;
 }
 
-.table-row-cell:filled:selected, .table-row-cell:filled:selected .table-cell {
-    -fx-background-color: #3A2418;
-    -fx-text-fill: #F5EDE3;
+.app-shell .metric-label,
+.app-shell .summary-label,
+.app-shell .detail-label,
+.app-shell .recovery-role,
+.app-shell .recovery-shift {
+    -fx-text-fill: #C9C2B5;
+}
+
+.recovery-details,
+.employee-detail-list {
+    -fx-border-color: #3A424C transparent transparent transparent;
+}
+
+.app-shell .recovery-time {
+    -fx-text-fill: #FF9A9A;
+}
+
+.app-shell .response-message {
+    -fx-text-fill: #70E0B4;
+}
+
+/* Complete dark TableView skin */
+.table-view,
+.table-row-cell,
+.table-row-cell:empty,
+.table-row-cell:empty .table-cell,
+.table-view .virtual-flow,
+.table-view .virtual-flow .clipped-container,
+.table-view .virtual-flow .clipped-container .sheet,
+.table-view .corner {
+    -fx-background-color: #20262D;
+}
+
+.table-view {
+    -fx-border-color: #3A424C;
+}
+
+.table-view .column-header-background,
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: #29313A;
+    -fx-border-color: transparent transparent #3A424C transparent;
+}
+
+.app-shell .table-view .column-header .label {
+    -fx-text-fill: #C9C2B5;
+}
+
+.app-shell .table-view .table-cell {
+    -fx-text-fill: #F5F1E8;
+    -fx-border-color: transparent transparent #3A424C transparent;
+}
+
+.table-row-cell:filled:hover {
+    -fx-background-color: #272E36;
+}
+
+.app-shell .table-row-cell:filled:selected,
+.app-shell .table-row-cell:filled:selected:hover,
+.app-shell .table-row-cell:filled:selected .table-cell {
+    -fx-background-color: #294E4B;
+    -fx-text-fill: #F5F1E8;
+}
+
+.table-view .scroll-bar:horizontal,
+.table-view .scroll-bar:vertical,
+.table-view .scroll-bar .track,
+.table-view .scroll-bar .increment-button,
+.table-view .scroll-bar .decrement-button {
+    -fx-background-color: #1B2026;
+}
+
+.table-view .scroll-bar .thumb {
+    -fx-background-color: #46505C;
+    -fx-background-radius: 999px;
+}
+
+.table-view .scroll-bar .thumb:hover {
+    -fx-background-color: #5A6571;
+}
+
+/* Dark semantic badges. These intentionally override shared/light pill colors. */
+.app-shell .status-success,
+.app-shell .status-scheduled,
+.app-shell .status-covered,
+.app-shell .status-accepted,
+.app-shell .recovery-covered {
+    -fx-background-color: #183C32;
+    -fx-text-fill: #70E0B4;
+}
+
+.app-shell .status-warning,
+.app-shell .status-open,
+.app-shell .status-searching,
+.app-shell .status-offer-sent,
+.app-shell .status-waiting,
+.app-shell .recovery-status {
+    -fx-background-color: #493A1E;
+    -fx-text-fill: #FFD27A;
+}
+
+.app-shell .status-danger,
+.app-shell .status-called-out,
+.app-shell .status-cancelled,
+.app-shell .status-declined,
+.app-shell .recovery-cancelled {
+    -fx-background-color: #482527;
+    -fx-text-fill: #FF9A9A;
+}
+
+.app-shell .status-neutral {
+    -fx-background-color: #353B43;
+    -fx-text-fill: #D3D8DE;
+}
+
+/* Status-cell specificity is higher than normal and selected table text rules. */
+.app-shell .table-view .table-cell.status-success,
+.app-shell .table-view .table-cell.status-scheduled,
+.app-shell .table-view .table-cell.status-covered,
+.app-shell .table-view .table-cell.status-accepted,
+.app-shell .table-row-cell:filled:selected .table-cell.status-success,
+.app-shell .table-row-cell:filled:selected .table-cell.status-scheduled,
+.app-shell .table-row-cell:filled:selected .table-cell.status-covered,
+.app-shell .table-row-cell:filled:selected .table-cell.status-accepted {
+    -fx-background-color: #183C32;
+    -fx-text-fill: #70E0B4;
+}
+
+.app-shell .table-view .table-cell.status-warning,
+.app-shell .table-view .table-cell.status-open,
+.app-shell .table-view .table-cell.status-searching,
+.app-shell .table-view .table-cell.status-offer-sent,
+.app-shell .table-view .table-cell.status-waiting,
+.app-shell .table-row-cell:filled:selected .table-cell.status-warning,
+.app-shell .table-row-cell:filled:selected .table-cell.status-open,
+.app-shell .table-row-cell:filled:selected .table-cell.status-searching,
+.app-shell .table-row-cell:filled:selected .table-cell.status-offer-sent,
+.app-shell .table-row-cell:filled:selected .table-cell.status-waiting {
+    -fx-background-color: #493A1E;
+    -fx-text-fill: #FFD27A;
+}
+
+.app-shell .table-view .table-cell.status-danger,
+.app-shell .table-view .table-cell.status-called-out,
+.app-shell .table-view .table-cell.status-cancelled,
+.app-shell .table-view .table-cell.status-declined,
+.app-shell .table-row-cell:filled:selected .table-cell.status-danger,
+.app-shell .table-row-cell:filled:selected .table-cell.status-called-out,
+.app-shell .table-row-cell:filled:selected .table-cell.status-cancelled,
+.app-shell .table-row-cell:filled:selected .table-cell.status-declined {
+    -fx-background-color: #482527;
+    -fx-text-fill: #FF9A9A;
+}
+
+.app-shell .table-view .table-cell.status-neutral,
+.app-shell .table-row-cell:filled:selected .table-cell.status-neutral {
+    -fx-background-color: #353B43;
+    -fx-text-fill: #D3D8DE;
+}
+
+/* Inputs and ComboBox popup */
+.app-shell .text-field,
+.app-shell .combo-box {
+    -fx-background-color: #20262D;
+    -fx-border-color: #46505C;
+    -fx-text-fill: #F5F1E8;
+    -fx-prompt-text-fill: #9FA8B2;
+}
+
+.app-shell .text-field:focused,
+.app-shell .combo-box:focused {
+    -fx-border-color: #45C2B5;
+    -fx-effect: dropshadow(gaussian, rgba(69, 194, 181, 0.20), 7, 0.1, 0, 0);
+}
+
+.app-shell .combo-box > .list-cell {
+    -fx-background-color: #20262D;
+    -fx-text-fill: #F5F1E8;
+}
+
+.app-shell .combo-box .arrow {
+    -fx-background-color: #C9C2B5;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #20262D;
+    -fx-border-color: #46505C;
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: #20262D;
+    -fx-text-fill: #F5F1E8;
+}
+
+.combo-box-popup .list-cell:hover,
+.combo-box-popup .list-cell:filled:selected {
+    -fx-background-color: #294E4B;
+    -fx-text-fill: #FFFFFF;
+}
+
+/* Buttons */
+.app-shell .primary-button {
+    -fx-background-color: #45C2B5;
+    -fx-border-color: #45C2B5;
+    -fx-text-fill: #101414;
+}
+
+.app-shell .primary-button:hover {
+    -fx-background-color: #55D4C6;
+    -fx-border-color: #55D4C6;
+    -fx-text-fill: #101414;
+}
+
+.app-shell .primary-button:pressed {
+    -fx-background-color: #359E94;
+    -fx-border-color: #359E94;
+}
+
+.app-shell .secondary-button,
+.app-shell .back-button {
+    -fx-background-color: #20262D;
+    -fx-border-color: #46505C;
+    -fx-text-fill: #F5F1E8;
+}
+
+.app-shell .secondary-button:hover,
+.app-shell .back-button:hover {
+    -fx-background-color: #29313A;
+    -fx-border-color: #45C2B5;
+}
+
+.app-shell .success-button {
+    -fx-background-color: #73B88D;
+    -fx-border-color: #73B88D;
+    -fx-text-fill: #101414;
+}
+
+.app-shell .success-button:hover {
+    -fx-background-color: #82C79C;
+    -fx-border-color: #82C79C;
+}
+
+.app-shell .danger-button {
+    -fx-background-color: #482527;
+    -fx-border-color: #E17A7A;
+    -fx-text-fill: #FF9A9A;
+}
+
+.app-shell .danger-button:hover {
+    -fx-background-color: #5A2D30;
+    -fx-border-color: #FF9A9A;
+}
+
+.app-shell .button:disabled {
+    -fx-background-color: #29313A;
+    -fx-border-color: #3A424C;
+    -fx-text-fill: #9FA8B2;
+    -fx-opacity: 0.62;
+}
+
+/* Workflow and secondary surfaces */
+.app-shell .offer-reasons,
+.app-shell .flow-next {
+    -fx-background-color: #1B2026;
+    -fx-border-color: #3A424C;
+    -fx-text-fill: #C9C2B5;
+}
+
+.app-shell .flow-complete {
+    -fx-background-color: #183C32;
+    -fx-text-fill: #70E0B4;
+}
+
+.app-shell .flow-current {
+    -fx-background-color: #493A1E;
+    -fx-text-fill: #FFD27A;
+}
+
+.app-shell .flow-arrow {
+    -fx-text-fill: #9FA8B2;
 }
