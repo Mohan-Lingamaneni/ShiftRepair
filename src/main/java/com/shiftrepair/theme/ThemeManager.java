@@ -11,7 +11,7 @@ public final class ThemeManager {
 
     private static final String LIGHT_THEME = "/com/shiftrepair/css/theme-light.css";
     private static final String DARK_THEME = "/com/shiftrepair/css/theme-dark.css";
-    private static Mode currentMode = Mode.LIGHT;
+    private static Mode currentMode = Mode.DARK;
 
     private ThemeManager() {
     }

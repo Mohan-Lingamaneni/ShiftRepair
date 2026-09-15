@@ -15,14 +15,14 @@
             fx:controller="com.shiftrepair.controller.RecoveriesController"
             styleClass="dashboard-scroll">
     <content>
-        <VBox spacing="24.0" styleClass="dashboard-page page-root">
+        <VBox spacing="24.0" styleClass="dashboard-page, page-root">
             <padding>
                 <Insets top="28.0" right="34.0" bottom="34.0" left="34.0" />
             </padding>
 
             <VBox spacing="4.0">
-                <Label text="Recoveries" styleClass="dashboard-title page-title" />
-                <Label text="Track shift coverage requests and recovery progress." styleClass="dashboard-subtitle page-subtitle" />
+                <Label text="Recoveries" styleClass="dashboard-title, page-title" />
+                <Label text="Track shift coverage requests and recovery progress." styleClass="dashboard-subtitle, page-subtitle" />
             </VBox>
 
             <GridPane hgap="16.0" styleClass="metric-row">
@@ -32,25 +32,25 @@
                     <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
                     <ColumnConstraints percentWidth="25.0" hgrow="ALWAYS" />
                 </columnConstraints>
-                <VBox styleClass="metric-card card" maxWidth="Infinity" GridPane.columnIndex="0">
-                    <Label text="1" styleClass="metric-value metric-number" />
+                <VBox styleClass="metric-card, card" maxWidth="Infinity" GridPane.columnIndex="0">
+                    <Label text="1" styleClass="metric-value, metric-number" />
                     <Label text="ACTIVE RECOVERIES" styleClass="metric-label" />
                 </VBox>
-                <VBox styleClass="metric-card card" maxWidth="Infinity" GridPane.columnIndex="1">
-                    <Label text="2" styleClass="metric-value metric-number" />
+                <VBox styleClass="metric-card, card" maxWidth="Infinity" GridPane.columnIndex="1">
+                    <Label text="2" styleClass="metric-value, metric-number" />
                     <Label text="COVERED TODAY" styleClass="metric-label" />
                 </VBox>
-                <VBox styleClass="metric-card card" maxWidth="Infinity" GridPane.columnIndex="2">
-                    <Label text="1" styleClass="metric-value metric-number" />
+                <VBox styleClass="metric-card, card" maxWidth="Infinity" GridPane.columnIndex="2">
+                    <Label text="1" styleClass="metric-value, metric-number" />
                     <Label text="CANCELLED" styleClass="metric-label" />
                 </VBox>
-                <VBox styleClass="metric-card card" maxWidth="Infinity" GridPane.columnIndex="3">
-                    <Label text="1" styleClass="metric-value metric-number" />
+                <VBox styleClass="metric-card, card" maxWidth="Infinity" GridPane.columnIndex="3">
+                    <Label text="1" styleClass="metric-value, metric-number" />
                     <Label text="NEEDS ATTENTION" styleClass="metric-label" />
                 </VBox>
             </GridPane>
 
-            <VBox spacing="14.0" styleClass="section-card card recovery-activity-card">
+            <VBox spacing="14.0" styleClass="section-card, card, recovery-activity-card">
                 <Label text="Recovery Activity" styleClass="section-title" />
                 <HBox spacing="20.0" styleClass="recovery-content-row">
                     <VBox spacing="10.0" styleClass="recovery-list-panel" HBox.hgrow="ALWAYS">
@@ -66,13 +66,13 @@
                         </TableView>
                     </VBox>
 
-                    <VBox spacing="14.0" styleClass="recovery-selection-card card" HBox.hgrow="NEVER">
+                    <VBox spacing="14.0" styleClass="recovery-selection-card, card" HBox.hgrow="NEVER">
                         <Label text="Selected Recovery" styleClass="selection-title" />
                         <VBox spacing="4.0">
                             <Label fx:id="selectedEmployee" text="Sarah Martinez" styleClass="recovery-employee" />
                             <Label fx:id="selectedShift" text="Cashier  |  4:00 PM - 10:00 PM" styleClass="recovery-shift" />
                         </VBox>
-                        <Label fx:id="selectedStatus" text="SEARCHING FOR COVERAGE" styleClass="status-badge status-warning" />
+                        <Label fx:id="selectedStatus" text="SEARCHING FOR COVERAGE" styleClass="status-badge, status-warning" />
                         <VBox spacing="9.0" styleClass="recovery-details">
                             <HBox styleClass="detail-row" spacing="12.0">
                                 <Label text="Current Candidate" styleClass="detail-label" HBox.hgrow="ALWAYS" />
@@ -87,7 +87,7 @@
                                 <Label text="3" styleClass="detail-value" />
                             </HBox>
                         </VBox>
-                        <Button fx:id="viewRecoveryButton" text="View Recovery" onAction="#viewRecovery" styleClass="secondary-button" maxWidth="Infinity" />
+                        <Button fx:id="viewRecoveryButton" text="View Recovery" onAction="#viewRecovery" styleClass="primary-button" maxWidth="Infinity" />
                     </VBox>
                 </HBox>
             </VBox>
