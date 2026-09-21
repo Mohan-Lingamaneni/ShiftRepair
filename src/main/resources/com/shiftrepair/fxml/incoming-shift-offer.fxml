@@ -155,7 +155,7 @@
                         onAction="#confirmAcceptance"
                         styleClass="success-button"/>
 
-                <Button fx:id="cancelAcceptButton"
+                <Button fx:id=" cancelAcceptButton"
                         text="Cancel"
                         onAction="#cancelAcceptance"
                         styleClass="secondary-button"/>
@@ -199,3 +199,4 @@
                 onAction="#resetDemo"
                 styleClass="secondary-button"/>
     </FlowPane>
+</VBox>
