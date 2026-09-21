@@ -72,9 +72,7 @@
                 </HBox>
                 <Label fx:id="responseMessage" styleClass="response-message" />
                 <HBox spacing="12.0">
-                    <Button fx:id="acceptButton" text="Accept Shift" onAction="#acceptShift" styleClass="success-button" />
-                    <Button fx:id="declineButton" text="Decline Shift" onAction="#declineShift" styleClass="danger-button" />
-                    <Button text="Reset Demo" onAction="#resetDemo" styleClass="secondary-button" />
+                    <Button fx:id="viewOfferButton" text="View Offer" onAction="#viewOffer" styleClass="primary-button" />
                 </HBox>
             </VBox>
         </VBox>

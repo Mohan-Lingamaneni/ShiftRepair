@@ -17,6 +17,8 @@ public class App extends Application {
         Scene scene = new Scene(loader.load());
         scene.getStylesheets().add(
             App.class.getResource("/com/shiftrepair/css/styles.css").toExternalForm());
+        scene.getStylesheets().add(
+            App.class.getResource("/com/shiftrepair/css/incoming-shift-offer.css").toExternalForm());
         ThemeManager.apply(scene);
 
         stage.setTitle("ShiftRepair");
