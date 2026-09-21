@@ -1,0 +1,31 @@
+.incoming-offer,
+.incoming-offer .offer-reasons,
+.incoming-offer .label {
+    -fx-min-width: 0;
+}
+
+.incoming-offer .detail-value,
+.incoming-offer .detail-label {
+    -fx-alignment: CENTER_LEFT;
+}
+
+.incoming-offer .offer-time {
+    -fx-font-size: 25px;
+}
+
+.incoming-offer .offer-date {
+    -fx-font-size: 15px;
+}
+
+.incoming-offer .offer-countdown {
+    -fx-font-size: 22px;
+}
+
+.incoming-offer .button,
+.incoming-offer .toggle-button {
+    -fx-min-height: 44px;
+}
+
+.incoming-offer .offer-empty-state {
+    -fx-padding: 22px 0;
+}
