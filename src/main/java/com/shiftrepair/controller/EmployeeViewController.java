@@ -1,5 +1,7 @@
 package com.shiftrepair.controller;
 
+import com.shiftrepair.model.ShiftOffer;
+import com.shiftrepair.model.ShiftOffer.Status;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -9,6 +11,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+
+import java.time.Instant;
 
 public class EmployeeViewController {
 
@@ -31,9 +35,7 @@ public class EmployeeViewController {
     @FXML
     private Label responseMessage;
     @FXML
-    private Button acceptButton;
-    @FXML
-    private Button declineButton;
+    private Button viewOfferButton;
 
     @FXML
     private void initialize() {
@@ -56,36 +58,51 @@ public class EmployeeViewController {
                 availabilityValue.getStyleClass().add(current.equals("Available") ? "status-success" : "status-neutral");
             }
         });
+        refreshOfferState();
+    }
+
+    private void refreshOfferState() {
+        ShiftOffer offer = IncomingShiftOfferController.getDemoOffer();
+        if (offer != null) {
+            offer.expireIfNeeded(Instant.now());
+        }
+        Status status = offer == null ? null : offer.getStatus();
+        offerStatus.getStyleClass().removeAll(
+                "status-warning", "status-success", "status-danger", "status-neutral");
+        if (status == null) {
+            offerStatus.setText("No Pending Offer");
+            offerStatus.getStyleClass().add("status-neutral");
+        } else {
+            switch (status) {
+                case PENDING -> {
+                    offerStatus.setText("Pending Response");
+                    offerStatus.getStyleClass().add("status-warning");
+                }
+                case ACCEPTED -> {
+                    offerStatus.setText("Accepted");
+                    offerStatus.getStyleClass().add("status-success");
+                    responseMessage.setText("You accepted the 4:00 PM - 10:00 PM shift.");
+                }
+                case DECLINED -> {
+                    offerStatus.setText("Declined");
+                    offerStatus.getStyleClass().add("status-danger");
+                    responseMessage.setText("You declined this coverage request.");
+                }
+                case EXPIRED -> {
+                    offerStatus.setText("Expired");
+                    offerStatus.getStyleClass().add("status-danger");
+                    responseMessage.setText("This coverage request has expired.");
+                }
+            }
+        }
+        viewOfferButton.setDisable(offer == null);
     }
 
     @FXML
-    private void acceptShift() {
-        offerStatus.setText("Accepted");
-        offerStatus.getStyleClass().removeAll("status-warning", "status-success", "status-danger");
-        offerStatus.getStyleClass().add("status-success");
-        responseMessage.setText("You accepted the 4:00 PM - 10:00 PM shift.");
-        acceptButton.setDisable(true);
-        declineButton.setDisable(true);
-    }
-
-    @FXML
-    private void declineShift() {
-        offerStatus.setText("Declined");
-        offerStatus.getStyleClass().removeAll("status-warning", "status-success", "status-danger");
-        offerStatus.getStyleClass().add("status-danger");
-        responseMessage.setText("You declined this coverage request.");
-        acceptButton.setDisable(true);
-        declineButton.setDisable(true);
-    }
-
-    @FXML
-    private void resetDemo() {
-        offerStatus.setText("Pending Response");
-        offerStatus.getStyleClass().removeAll("status-warning", "status-success", "status-danger");
-        offerStatus.getStyleClass().add("status-warning");
-        responseMessage.setText("");
-        acceptButton.setDisable(false);
-        declineButton.setDisable(false);
+    private void viewOffer() {
+        AppShellController shellController = (AppShellController) viewOfferButton
+                .getScene().getRoot().getUserData();
+        shellController.showIncomingShiftOffer();
     }
 
     private record ShiftRow(StringProperty day, StringProperty shift,

@@ -12,8 +12,11 @@
       xmlns="http://javafx.com/javafx/23.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.shiftrepair.controller.IncomingShiftOfferController"
-      stylesheets="@../css/incoming-shift-offer.css"
       styleClass="section-card, card, coverage-offer-card, incoming-offer">
+
+    <Button text="Back to Employee View"
+            onAction="#backToEmployeeView"
+            styleClass="back-button"/>
 
     <FlowPane hgap="18.0"
               vgap="10.0"
@@ -78,6 +81,15 @@
             <Label fx:id="originalEmployee"
                    text="Covering for Sarah Martinez"
                    styleClass="detail-label"
+                   wrapText="true"/>
+
+            <Label text="Reason: Callout"
+                   styleClass="detail-label"
+                   wrapText="true"/>
+
+            <Label fx:id="coverageScore"
+                   text="Coverage score: 92"
+                   styleClass="detail-value"
                    wrapText="true"/>
         </FlowPane>
 
@@ -155,7 +167,7 @@
                         onAction="#confirmAcceptance"
                         styleClass="success-button"/>
 
-                <Button fx:id=" cancelAcceptButton"
+                <Button fx:id="cancelAcceptButton"
                         text="Cancel"
                         onAction="#cancelAcceptance"
                         styleClass="secondary-button"/>

@@ -53,6 +53,7 @@ public class IncomingShiftOfferController {
     @FXML private Label role;
     @FXML private Label locationLabel;
     @FXML private Label originalEmployee;
+    @FXML private Label coverageScore;
     @FXML private Label timeRemaining;
     @FXML private Label deadlineHint;
     @FXML private Label responseMessage;
@@ -75,6 +76,7 @@ public class IncomingShiftOfferController {
     private boolean confirming;
 
     private Runnable onViewSchedule;
+    private Runnable onBack;
 
     private Consumer<ShiftOffer> onResponse =
             completedOffer -> { };
@@ -260,7 +262,7 @@ public class IncomingShiftOfferController {
             }
 
             case DECLINED -> {
-                setStatus("Declined", "status-neutral");
+                setStatus("Declined", "status-danger");
                 timeRemaining.setText("Response received");
                 responseMessage.setText(
                         "You declined this shift offer."
@@ -318,14 +320,20 @@ public class IncomingShiftOfferController {
             return;
         }
 
-        demoOffer = createDemoOffer();
-        showOffer(demoOffer);
+        showOffer(resetDemoOffer());
     }
 
     @FXML
     private void viewSchedule() {
         if (onViewSchedule != null) {
             onViewSchedule.run();
+        }
+    }
+
+    @FXML
+    private void backToEmployeeView() {
+        if (onBack != null) {
+            onBack.run();
         }
     }
 
@@ -368,6 +376,7 @@ public class IncomingShiftOfferController {
             originalEmployee.setText(
                     "Covering for " + offer.getOriginalEmployee()
             );
+            coverageScore.setText("Coverage score: " + offer.getCoverageScore());
 
             // Display only reasons supplied with this offer.
             for (String reason :
@@ -442,6 +451,19 @@ public class IncomingShiftOfferController {
 
     public ShiftOffer getOffer() {
         return offer;
+    }
+
+    public static ShiftOffer getDemoOffer() {
+        return demoOffer;
+    }
+
+    public static ShiftOffer resetDemoOffer() {
+        demoOffer = createDemoOffer();
+        return demoOffer;
+    }
+
+    public void setOnBack(Runnable handler) {
+        onBack = Objects.requireNonNull(handler);
     }
 
     // Sample data for the frontend demonstration.

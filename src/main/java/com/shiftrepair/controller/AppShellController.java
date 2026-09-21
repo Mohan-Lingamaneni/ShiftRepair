@@ -74,7 +74,28 @@ public class AppShellController {
 
     @FXML
     private void showEmployeeView() {
+        showEmployeeViewPage();
+    }
+
+    public void showEmployeeViewPage() {
         showPage("Employee View", "/com/shiftrepair/fxml/employee-view-placeholder.fxml", employeeViewButton);
+    }
+
+    public void showIncomingShiftOffer() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                    "/com/shiftrepair/fxml/incoming-shift-offer.fxml"));
+            Node page = loader.load();
+            IncomingShiftOfferController controller = loader.getController();
+            controller.setOnBack(this::showEmployeeViewPage);
+            controller.setOnViewSchedule(this::showEmployeeViewPage);
+            shell.setCenter(page);
+            pageTitle.setText("Incoming Shift Offer");
+            clearActiveNavigation();
+            employeeViewButton.getStyleClass().add("active");
+        } catch (IOException exception) {
+            throw new IllegalStateException("Could not load incoming shift offer", exception);
+        }
     }
 
     private void showPage(String title, String viewPath, Button selectedButton) {
@@ -83,14 +104,18 @@ public class AppShellController {
             shell.setCenter(page);
             pageTitle.setText(title);
 
-            dashboardButton.getStyleClass().remove("active");
-            scheduleButton.getStyleClass().remove("active");
-            recoveriesButton.getStyleClass().remove("active");
-            employeesButton.getStyleClass().remove("active");
-            employeeViewButton.getStyleClass().remove("active");
+            clearActiveNavigation();
             selectedButton.getStyleClass().add("active");
         } catch (IOException exception) {
             throw new IllegalStateException("Could not load page: " + viewPath, exception);
         }
+    }
+
+    private void clearActiveNavigation() {
+        dashboardButton.getStyleClass().remove("active");
+        scheduleButton.getStyleClass().remove("active");
+        recoveriesButton.getStyleClass().remove("active");
+        employeesButton.getStyleClass().remove("active");
+        employeeViewButton.getStyleClass().remove("active");
     }
 }
