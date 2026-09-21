@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="offerCard"
+      spacing="16.0"
+      minWidth="0.0"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.shiftrepair.controller.IncomingShiftOfferController"
+      stylesheets="@../css/incoming-shift-offer.css"
+      styleClass="section-card, card, coverage-offer-card, incoming-offer">
+
+    <FlowPane hgap="18.0"
+              vgap="10.0"
+              alignment="CENTER_LEFT">
+
+        <Label text="Incoming Shift Offer"
+               styleClass="section-title"
+               wrapText="true"/>
+
+        <Label fx:id="offerStatus"
+               text="Pending Response"
+               styleClass="status-badge, status-warning"/>
+    </FlowPane>
+
+    <Label fx:id="demoLabel"
+           text="Sample offer · Responses are stored for this demo session."
+           styleClass="detail-label"
+           wrapText="true"
+           maxWidth="Infinity"/>
+
+    <VBox fx:id="offerContent"
+          spacing="16.0"
+          minWidth="0.0">
+
+        <VBox spacing="6.0" minWidth="0.0">
+
+            <Label fx:id="employeeName"
+                   text="Offer for Jordan Lee"
+                   styleClass="detail-label"
+                   wrapText="true"/>
+
+            <Label fx:id="role"
+                   text="Cashier"
+                   styleClass="recovery-employee"
+                   wrapText="true"/>
+
+            <Label fx:id="shiftDate"
+                   text="Shift date"
+                   styleClass="detail-value, offer-date"
+                   wrapText="true"/>
+
+            <Label fx:id="shiftTime"
+                   text="4:00 PM - 10:00 PM"
+                   styleClass="detail-value, offer-time"
+                   wrapText="true"/>
+
+            <Label fx:id="shiftDuration"
+                   text="6-hour shift"
+                   styleClass="detail-label"
+                   wrapText="true"/>
+        </VBox>
+
+        <FlowPane hgap="28.0"
+                  vgap="8.0"
+                  alignment="CENTER_LEFT">
+
+            <Label fx:id="locationLabel"
+                   text="Location: Main Store"
+                   styleClass="detail-value"
+                   wrapText="true"/>
+
+            <Label fx:id="originalEmployee"
+                   text="Covering for Sarah Martinez"
+                   styleClass="detail-label"
+                   wrapText="true"/>
+        </FlowPane>
+
+        <VBox spacing="10.0" minWidth="0.0">
+
+            <ToggleButton fx:id="reasonsToggle"
+                          text="Why you were selected ▸"
+                          onAction="#toggleReasons"
+                          styleClass="secondary-button"
+                          wrapText="true"
+                          maxWidth="Infinity"/>
+
+            <VBox fx:id="reasonsBox"
+                  spacing="8.0"
+                  visible="false"
+                  managed="false"
+                  styleClass="offer-reasons"
+                  minWidth="0.0"/>
+        </VBox>
+
+        <VBox spacing="4.0">
+
+            <Label fx:id="deadlineHint"
+                   text="Time left to respond"
+                   styleClass="detail-label"
+                   wrapText="true"/>
+
+            <Label fx:id="timeRemaining"
+                   text="05:00"
+                   styleClass="detail-value, offer-countdown"
+                   wrapText="true"/>
+
+            <Label fx:id="responseMessage"
+                   text="Choose whether you can cover this shift."
+                   styleClass="detail-label"
+                   wrapText="true"
+                   maxWidth="Infinity"/>
+        </VBox>
+
+        <FlowPane fx:id="responseActions"
+                  hgap="12.0"
+                  vgap="12.0">
+
+            <Button fx:id="acceptButton"
+                    text="Accept Shift"
+                    onAction="#acceptShift"
+                    styleClass="success-button"/>
+
+            <Button fx:id="declineButton"
+                    text="Decline"
+                    onAction="#declineShift"
+                    styleClass="secondary-button"/>
+        </FlowPane>
+
+        <VBox fx:id="confirmationBox"
+              spacing="12.0"
+              visible="false"
+              managed="false"
+              styleClass="offer-reasons"
+              minWidth="0.0">
+
+            <Label text="Accept this shift?"
+                   styleClass="selection-title"
+                   wrapText="true"/>
+
+            <Label fx:id="confirmationSummary"
+                   styleClass="detail-label"
+                   wrapText="true"
+                   maxWidth="Infinity"/>
+
+            <FlowPane hgap="12.0" vgap="10.0">
+
+                <Button fx:id="confirmAcceptButton"
+                        text="Confirm Acceptance"
+                        onAction="#confirmAcceptance"
+                        styleClass="success-button"/>
+
+                <Button fx:id=" cancelAcceptButton"
+                        text="Cancel"
+                        onAction="#cancelAcceptance"
+                        styleClass="secondary-button"/>
+            </FlowPane>
+        </VBox>
+
+        <Button fx:id="doneButton"
+                text="Done"
+                onAction="#dismissOffer"
+                styleClass="secondary-button"
+                visible="false"
+                managed="false"/>
+    </VBox>
+
+    <VBox fx:id="emptyState"
+          spacing="8.0"
+          visible="false"
+          managed="false"
+          styleClass="offer-empty-state">
+
+        <Label text="No pending offers"
+               styleClass="recovery-employee"
+               wrapText="true"/>
+
+        <Label text="Your next shift offer will appear here."
+               styleClass="detail-label"
+               wrapText="true"/>
+    </VBox>
+
+    <FlowPane hgap="12.0" vgap="12.0">
+
+        <Button fx:id="scheduleButton"
+                text="View My Schedule"
+                onAction="#viewSchedule"
+                styleClass="secondary-button"
+                visible="false"
+                managed="false"/>
+
+        <Button fx:id="resetButton"
+                text="Reset Demo"
+                onAction="#resetDemo"
+                styleClass="secondary-button"/>
+    </FlowPane>
+</VBox>
