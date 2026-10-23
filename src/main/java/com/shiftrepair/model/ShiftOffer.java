@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneOffset;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,7 +14,8 @@ public class ShiftOffer {
         PENDING,
         ACCEPTED,
         DECLINED,
-        EXPIRED
+        EXPIRED,
+        CLOSED
     }
 
     private final String id;
@@ -27,6 +29,7 @@ public class ShiftOffer {
     private final int coverageScore;
     private final Instant expiresAt;
     private final List<String> selectionReasons;
+    private final Shift backendShift;
 
     private Status status = Status.PENDING;
 
@@ -62,6 +65,14 @@ public class ShiftOffer {
             Instant expiresAt,
             List<String> selectionReasons) {
 
+        this(id, employee, originalEmployee, role, location, date, startTime, endTime,
+                coverageScore, expiresAt, selectionReasons, null);
+    }
+
+    private ShiftOffer(String id, String employee, String originalEmployee, String role,
+                       String location, LocalDate date, LocalTime startTime, LocalTime endTime,
+                       int coverageScore, Instant expiresAt, List<String> selectionReasons, Shift backendShift) {
+
         this.id = Objects.requireNonNull(id);
         this.employee = Objects.requireNonNull(employee);
         this.originalEmployee = Objects.requireNonNull(originalEmployee);
@@ -72,6 +83,7 @@ public class ShiftOffer {
         this.endTime = Objects.requireNonNull(endTime);
         this.coverageScore = coverageScore;
         this.expiresAt = Objects.requireNonNull(expiresAt);
+        this.backendShift = backendShift;
 
         this.selectionReasons =
                 List.copyOf(Objects.requireNonNull(selectionReasons))
@@ -80,11 +92,37 @@ public class ShiftOffer {
                         .filter(reason -> !reason.isEmpty())
                         .toList();
 
-        if (startTime.equals(endTime)) {
+        if (backendShift == null && startTime.equals(endTime)) {
             throw new IllegalArgumentException(
                     "A shift must have different start and end times."
             );
         }
+    }
+
+    /** Absolute-time backend offer. Legacy constructors and demo date/time behavior are unchanged. */
+    public static ShiftOffer forShift(String id, String employeeId, Shift shift, int score,
+                                      Instant expiresAt, List<String> reasons) {
+        Objects.requireNonNull(shift, "shift");
+        if (score < 0 || score > 100) {
+            throw new IllegalArgumentException("Score must be between 0 and 100");
+        }
+        var start = shift.window().start().atOffset(ZoneOffset.UTC);
+        var end = shift.window().end().atOffset(ZoneOffset.UTC);
+        return new ShiftOffer(ModelChecks.text(id, "id"), ModelChecks.text(employeeId, "employeeId"),
+                shift.assignedEmployeeId().orElse("Uncovered position"),
+                shift.requiredQualifications().stream().filter(q -> q.type() == Qualification.Type.ROLE)
+                        .map(Qualification::code).sorted().findFirst().orElse("Coverage"),
+                shift.locationId(), start.toLocalDate(), start.toLocalTime(), end.toLocalTime(),
+                score, expiresAt, reasons, shift);
+    }
+
+    /** A pending offer can be withdrawn when coverage ends or eligibility changes. */
+    public boolean close() {
+        if (status != Status.PENDING) {
+            return false;
+        }
+        status = Status.CLOSED;
+        return true;
     }
 
     // A response is allowed only once and before the deadline.
@@ -127,12 +165,18 @@ public class ShiftOffer {
     }
 
     public LocalDate getEndDate() {
+        if (backendShift != null) {
+            return backendShift.window().end().atOffset(ZoneOffset.UTC).toLocalDate();
+        }
         return endTime.isBefore(startTime)
                 ? date.plusDays(1)
                 : date;
     }
 
     public Duration getDuration() {
+        if (backendShift != null) {
+            return backendShift.window().duration();
+        }
         return Duration.between(
                 date.atTime(startTime),
                 getEndDate().atTime(endTime)
